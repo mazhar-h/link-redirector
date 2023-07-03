@@ -7,7 +7,7 @@ import { LinkResponse } from '../models/link.model';
 })
 export class LinkService {
 
-  private apiUrl: string = 'http://149.28.243.182:443/api/v1/urls';
+  private apiUrl: string = 'https://149.28.243.182:443/api/v1/urls';
 
   constructor(private http: HttpClient) { }
 
