@@ -1,0 +1,5 @@
+<form id="link-form">
+  <input type="text" placeholder="Your URL here" #inputBox />
+  <button type="button" (click)="generateUrl(inputBox.value)">Submit</button>
+  <input type="text" placeholder="Your generated URL here" value="{{ generatedValue }}" readonly />
+</form>
