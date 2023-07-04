@@ -24,12 +24,4 @@ export class RedirectComponent implements OnInit {
             error: (error) => { this.router.navigateByUrl('not-found') }});
       })
   }
-  getDomain(): string {
-    let hostname: string = document.location.hostname;
-    let host: string = document.location.host;
-    let path: string = document.location.pathname;
-    if (hostname === 'localhost')
-      return "http://" + host;
-    return hostname + path;
-  }
 }
