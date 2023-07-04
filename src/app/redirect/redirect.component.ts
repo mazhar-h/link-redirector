@@ -21,7 +21,20 @@ export class RedirectComponent implements OnInit {
         this.linkService.getLink(code)
           .subscribe({
             next: (response) => { location.replace(response.url); },
-            error: (error) => { this.router.navigateByUrl('not-found'); }});
+            error: (error) => {
+              location.replace(this.getDomain(code) + 'not-found')
+              //this.router.navigateByUrl('not-found');
+            }});
       })
   }
+
+    getDomain(code: string | null) {
+      let path = location.pathname;
+      let host = location.host;
+      let hostname = location.hostname;
+      if (hostname == 'localhost')
+        host = 'http://' + host;
+      path = path.replace(code as string, '');
+      return host + path;
+    }
 }
