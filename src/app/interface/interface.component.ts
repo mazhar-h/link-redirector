@@ -20,7 +20,9 @@ export class InterfaceComponent {
   }
 
   getDomain(): string {
-    return document.location.host;
+    let host = document.location.host;
+    let path = document.location.pathname;
+    return host + path;
   }
 
 }
