@@ -21,14 +21,15 @@ export class RedirectComponent implements OnInit {
         this.linkService.getLink(code)
           .subscribe({
             next: (response) => { location.href = response.url; },
-            error: (error) => { location.href = this.getDomain() + "/not-found" }});
+            error: (error) => { location.href = this.getDomain() + "not-found" }});
       })
   }
   getDomain(): string {
     let hostname: string = document.location.hostname;
     let host: string = document.location.host;
+    let path: string = document.location.pathname;
     if (hostname === 'localhost')
       return "http://" + host;
-    return host;
+    return host + path;
   }
 }
