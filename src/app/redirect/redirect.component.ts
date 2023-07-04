@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { LinkService } from '../services/link.service';
-import { catchError, throwError } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-redirect',
@@ -10,7 +10,7 @@ import { catchError, throwError } from 'rxjs';
 })
 export class RedirectComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private linkService: LinkService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private linkService: LinkService) { }
 
   ngOnInit(): void {
     this.route.paramMap
@@ -21,7 +21,7 @@ export class RedirectComponent implements OnInit {
         this.linkService.getLink(code)
           .subscribe({
             next: (response) => { location.href = response.url; },
-            error: (error) => { location.href = document.location.pathname + "/not-found" }});
+            error: (error) => { this.router.navigateByUrl('not-found') }});
       })
   }
   getDomain(): string {
