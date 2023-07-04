@@ -30,6 +30,6 @@ export class RedirectComponent implements OnInit {
     let path: string = document.location.pathname;
     if (hostname === 'localhost')
       return "http://" + host;
-    return host + path;
+    return hostname + path;
   }
 }
