@@ -20,8 +20,8 @@ export class RedirectComponent implements OnInit {
           return;
         this.linkService.getLink(code)
           .subscribe({
-            next: (response) => { location.href = response.url; },
-            error: (error) => { this.router.navigateByUrl('not-found') }});
+            next: (response) => { location.replace(response.url); },
+            error: (error) => { this.router.navigateByUrl('not-found'); }});
       })
   }
 }
