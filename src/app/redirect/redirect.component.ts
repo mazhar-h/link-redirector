@@ -21,7 +21,7 @@ export class RedirectComponent implements OnInit {
         this.linkService.getLink(code)
           .subscribe({
             next: (response) => { location.href = response.url; },
-            error: (error) => { location.href = this.getDomain() + "not-found" }});
+            error: (error) => { location.href = this.getDomain() + "/not-found" }});
       })
   }
   getDomain(): string {
