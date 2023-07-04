@@ -14,9 +14,14 @@ export class InterfaceComponent {
 
   generateUrl(inputValue: string) {
     this.linkService.createLink(inputValue)
-    .subscribe(response => {
-      this.generatedValue = this.getDomain() + response.code;
-    });
+      .subscribe(response => {
+        this.generatedValue = this.getDomain() + response.code;
+      });
+  }
+
+  copyToClipboard(): void {
+    if (this.generatedValue)
+      navigator.clipboard.writeText(this.generatedValue);
   }
 
   getDomain(): string {

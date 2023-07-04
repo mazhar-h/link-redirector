@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { LinkService } from '../services/link.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-redirect',
@@ -10,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class RedirectComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private router: Router, private linkService: LinkService) { }
+  constructor(private route: ActivatedRoute, private linkService: LinkService) { }
 
   ngOnInit(): void {
     this.route.paramMap
@@ -21,10 +20,8 @@ export class RedirectComponent implements OnInit {
         this.linkService.getLink(code)
           .subscribe({
             next: (response) => { location.replace(response.url); },
-            error: (error) => {
-              location.replace('not-found')
-              //this.router.navigateByUrl('not-found');
-            }});
+            error: (error) => { location.replace('not-found'); }
+          });
       })
   }
 }

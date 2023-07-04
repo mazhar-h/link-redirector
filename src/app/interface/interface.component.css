@@ -1,0 +1,23 @@
+form {
+    padding-top: 15%;
+    margin: 0;
+    display: grid;
+    place-items: center;
+}
+
+.btn-1 {
+    background-color: rgb(185, 248, 241);
+    height: 35px;
+    width: 310px;
+    font-size: 25px;
+    font-family: Arial;
+    font-weight: bold;
+    font-style: italic;
+    cursor: pointer;
+}
+
+.input-1 {
+    height: 50px;
+    width: 300px;
+    font-size: 25px;
+}
