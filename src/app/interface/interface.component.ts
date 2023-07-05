@@ -55,7 +55,7 @@ export class InterfaceComponent {
   getHostUrl(): string {
     let host = document.location.host;
     let path = document.location.pathname;
-    return host + path;
+    return this.appendProtocol(host + path);
   }
 
 }
