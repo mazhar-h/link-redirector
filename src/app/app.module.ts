@@ -6,9 +6,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { InterfaceComponent } from './interface/interface.component';
 import { RedirectComponent } from './redirect/redirect.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 import { LinkService } from './services/link.service';
-import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({

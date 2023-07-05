@@ -16,10 +16,7 @@ export class LinkService {
   }
 
   createLink(url: string) {
-    if (!url.startsWith("http://") && !url.startsWith("https://"))
-      url = "https://" + url;
-    let validatedUrl = new URL(url)
-    return this.http.post<LinkResponse>(this.apiUrl, { url: validatedUrl.toString() }, this.getOptions());
+    return this.http.post<LinkResponse>(this.apiUrl, { url: url }, this.getOptions());
   }
 
   getOptions() {
