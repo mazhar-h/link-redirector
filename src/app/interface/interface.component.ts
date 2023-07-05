@@ -8,20 +8,20 @@ import { LinkService } from '../services/link.service';
 })
 export class InterfaceComponent {
 
-  generatedValue: string | undefined;
+  generatedUrl: string | undefined;
 
   constructor(private linkService: LinkService) { }
 
   generateUrl(inputValue: string) {
     this.linkService.createLink(inputValue)
       .subscribe(response => {
-        this.generatedValue = this.getDomain() + response.code;
+        this.generatedUrl = this.getDomain() + response.code;
       });
   }
 
   copyToClipboard(): void {
-    if (this.generatedValue)
-      navigator.clipboard.writeText(this.generatedValue);
+    if (this.generatedUrl)
+      navigator.clipboard.writeText(this.generatedUrl);
   }
 
   getDomain(): string {
