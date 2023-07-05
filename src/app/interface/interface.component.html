@@ -2,6 +2,6 @@
   <h1 class="header-1">go.vamosl.ink</h1>
   <input class="input-1" type="text" placeholder="Your URL here" #inputBox (keydown.enter)="generateUrl(inputBox.value)"/>
   <button class="btn-1" type="button" (click)="generateUrl(inputBox.value)">Shorten URL</button>
-  <input class="input-1" type="text" placeholder="Your generated URL here" value="{{ generatedUrl }}" readonly />
+  <input class="input-1" type="text" placeholder="Your shortened URL here" value="{{ generatedUrl }}" readonly />
   <button class="btn-1" type="button" (click)="copyToClipboard()">Copy</button>
 </form>
