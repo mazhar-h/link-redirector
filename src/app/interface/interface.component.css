@@ -8,7 +8,7 @@ form {
 .btn-1 {
     background-color: rgb(185, 248, 241);
     height: 35px;
-    width: 330px;
+    width: 340px;
     font-size: 25px;
     font-family: Arial;
     font-weight: bold;
@@ -18,7 +18,8 @@ form {
 
 .input-1 {
     height: 50px;
-    width: 320px;
+    width: 330px;
     font-size: 25px;
     font-family: Arial;
+    text-indent: 6px;
 }
