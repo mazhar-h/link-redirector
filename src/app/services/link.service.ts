@@ -7,7 +7,7 @@ import { LinkResponse } from '../models/link.model';
 })
 export class LinkService {
 
-  private apiUrl: string = 'https://vamosl.ink/api/v1/urls';
+  private apiUrl: string = 'https://api.vamosl.ink/api/v1/urls';
 
   constructor(private http: HttpClient) { }
 
