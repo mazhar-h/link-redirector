@@ -12,15 +12,18 @@ export class InterfaceComponent {
 
   constructor(private linkService: LinkService) { }
 
-  generateUrl(inputValue: string) {
-    if (!this.isValidUrl(inputValue)) {
+  generateUrl(input: HTMLInputElement) {
+    let value = input.value;
+    if (!this.isValidUrl(value)) {
       this.generatedUrl = '';
       return;
     }
-    inputValue = this.appendProtocol(inputValue);
-    this.linkService.createLink(inputValue)
+    value = this.appendProtocol(value);
+    this.linkService.createLink(value)
       .subscribe(response => {
         this.generatedUrl = this.getHostUrl() + response.code;
+        input.blur();
+        input.value = '';
       });
   }
 
