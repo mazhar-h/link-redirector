@@ -65,7 +65,7 @@ export class InterfaceComponent {
       '(\\?[;&a-z\\d%_.~+=-]*)?' + // validate query string
       '(\\#[-a-z\\d_]*)?$', 'i'); // validate fragment locator
     try {
-      return Boolean(new URL(value)) && urlPattern.test(value);
+      return Boolean(new URL(value)) && urlPattern.test(value) && !value.includes(location.hostname);
     }
     catch (e) {
       return false;
@@ -78,8 +78,8 @@ export class InterfaceComponent {
   }
 
   getHostUrl(): string {
-    let host = document.location.host;
-    let path = document.location.pathname;
+    let host = location.host;
+    let path = location.pathname;
     return this.appendProtocol(host + path);
   }
 
