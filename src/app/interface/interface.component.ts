@@ -8,6 +8,10 @@ import { LinkService } from '../services/link.service';
 })
 export class InterfaceComponent {
 
+  static readonly PLACEHOLDER1 = 'Your URL here';
+  static readonly PLACEHOLDER1INVALID = 'Invalid URL';
+  static readonly INPUT1INVALID = 'input-invalid';
+  static readonly INPUT1 = 'input-1';
   generatedUrl: string | undefined;
 
   constructor(private linkService: LinkService) { }
@@ -15,6 +19,9 @@ export class InterfaceComponent {
   generateUrl(input: HTMLInputElement) {
     let value = input.value;
     if (!this.isValidUrl(value)) {
+      input.className = InterfaceComponent.INPUT1INVALID;
+      input.value = '';
+      input.placeholder = InterfaceComponent.PLACEHOLDER1INVALID;
       this.generatedUrl = '';
       return;
     }
@@ -24,7 +31,13 @@ export class InterfaceComponent {
         this.generatedUrl = this.getHostUrl() + response.code;
         input.blur();
         input.value = '';
+        input.className = InterfaceComponent.INPUT1;
+        input.placeholder = InterfaceComponent.PLACEHOLDER1;
       });
+  }
+
+  onFocus() {
+    this.generatedUrl = '';
   }
 
   appendProtocol(value: string) {

@@ -23,3 +23,13 @@ form {
     font-family: Arial;
     text-indent: 6px;
 }
+
+.input-invalid {
+    height: 50px;
+    width: 330px;
+    font-size: 25px;
+    font-family: Arial;
+    text-indent: 6px;
+    border-color: rgb(255, 76, 76);
+    color: rgb(255, 76, 76);
+}
