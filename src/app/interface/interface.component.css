@@ -23,7 +23,10 @@ form {
     width: 330px;
     font-size: 25px;
     font-family: Arial;
-    text-indent: 6px;
+}
+
+.input-1::placeholder {
+    color: rgb(195, 193, 193);
 }
 
 .input-invalid {
@@ -31,7 +34,6 @@ form {
     width: 330px;
     font-size: 25px;
     font-family: Arial;
-    text-indent: 6px;
     border-color: rgb(255, 76, 76);
 }
 

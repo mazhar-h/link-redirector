@@ -11,8 +11,8 @@ export class InterfaceComponent {
 
   static readonly PLACEHOLDER1 = 'Your URL here';
   static readonly PLACEHOLDER1INVALID = 'Invalid URL';
-  static readonly INPUT1 = 'input-1';
-  static readonly INPUT1INVALID = 'input-invalid';
+  static readonly INPUT1 = 'form-control input-1';
+  static readonly INPUT1INVALID = 'form-control input-invalid';
   generatedUrl: string | undefined;
 
   constructor(private linkService: LinkService) { }
