@@ -12,21 +12,21 @@ export class InterfaceComponent {
   static readonly PLACEHOLDER1 = 'Your URL here';
   static readonly PLACEHOLDER1INVALID = 'Invalid URL';
   static readonly INPUT1 = 'form-control input-1';
-  static readonly INPUT1INVALID = 'form-control input-invalid';
+  static readonly INPUT1INVALID = 'form-control input-invalid is-invalid';
   generatedUrl: string | undefined;
 
   constructor(private linkService: LinkService) { }
 
-  generateUrl(input: HTMLInputElement) {
-    let inputValue = input.value;
+  generateUrl(input1: HTMLInputElement, input2: HTMLInputElement) {
+    let inputValue = input1.value;
     if (!this.isValidUrl(inputValue)) {
-      this.onInvalid(input)
+      this.onInvalid(input1)
       return;
     }
     inputValue = this.appendProtocol(inputValue);
     this.linkService.createLink(inputValue)
       .subscribe({
-        next: response => { this.onValid(input, response) }
+        next: response => { this.onValid(input1, input2, response) }
       });
   }
 
@@ -37,12 +37,13 @@ export class InterfaceComponent {
     this.generatedUrl = '';
   }
 
-  onValid(input: HTMLInputElement, response: LinkResponse) {
+  onValid(input1: HTMLInputElement, input2: HTMLInputElement, response: LinkResponse) {
     this.generatedUrl = this.getHostUrl() + response.code;
-    input.blur();
-    input.value = '';
-    input.className = InterfaceComponent.INPUT1;
-    input.placeholder = InterfaceComponent.PLACEHOLDER1;
+    input1.blur();
+    input1.className = InterfaceComponent.INPUT1;
+    input1.placeholder = InterfaceComponent.PLACEHOLDER1;
+    input2.focus();
+    input2.select();
   }
 
   onFocus() {

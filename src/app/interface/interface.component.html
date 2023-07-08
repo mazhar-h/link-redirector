@@ -1,7 +1,7 @@
 <form class="link-form">
   <h1 class="header-1">vamosl.ink</h1>
-  <input class="form-control input-1" type="text" placeholder="Your URL here" autofocus #inputBox (keydown.enter)="generateUrl(inputBox)" (focus)="onFocus()"/>
-  <button class="btn btn-1" type="button" (click)="generateUrl(inputBox)">Shorten</button>
-  <input class="form-control input-1" type="text" placeholder="Your shortened URL here" value="{{ generatedUrl }}" readonly/>
+  <input class="form-control input-1" type="text" placeholder="Your URL here" autofocus #input1 (keydown.enter)="generateUrl(input1,input2)" (focus)="onFocus()"/>
+  <button class="btn btn-1" type="button" (click)="generateUrl(input1,input2)">Shorten</button>
+  <input class="form-control input-1" type="text" placeholder="Your shortened URL here" value="{{ generatedUrl }}" readonly #input2/>
   <button class="btn btn-1" type="button" (click)="copyToClipboard()">Copy</button>
 </form>

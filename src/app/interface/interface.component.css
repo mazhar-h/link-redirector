@@ -38,5 +38,5 @@ form {
 }
 
 .input-invalid::placeholder {
-    color: rgb(255, 76, 76);
+    color: rgb(220, 53, 69);
 }
