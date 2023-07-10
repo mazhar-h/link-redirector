@@ -39,6 +39,7 @@ export class InterfaceComponent {
 
   onValid(input1: HTMLInputElement, input2: HTMLInputElement, response: LinkResponse) {
     this.generatedUrl = this.getHostUrl() + response.code;
+    input1.value = '';
     input1.blur();
     input1.className = InterfaceComponent.INPUT1;
     input1.placeholder = InterfaceComponent.PLACEHOLDER1;
@@ -57,8 +58,7 @@ export class InterfaceComponent {
   }
 
   isValidUrl(value: string): boolean {
-    if (!value.startsWith("http://") && !value.startsWith("https://"))
-      value = "https://" + value;
+    value = this.appendProtocol(value);
     let urlPattern = new RegExp('^(https?:\\/\\/)?' + // validate protocol
       '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // validate domain name
       '((\\d{1,3}\\.){3}\\d{1,3}))' + // validate OR ip (v4) address
@@ -73,9 +73,11 @@ export class InterfaceComponent {
     }
   }
 
-  copyToClipboard(): void {
+  copyToClipboard(input2: HTMLInputElement): void {
     if (this.generatedUrl)
       navigator.clipboard.writeText(this.generatedUrl);
+    input2.focus();
+    input2.select();
   }
 
   getHostUrl(): string {
