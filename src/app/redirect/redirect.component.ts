@@ -22,6 +22,6 @@ export class RedirectComponent implements OnInit {
             next: (response) => { location.replace(response.url); },
             error: (error) => { location.replace('not-found'); }
           });
-      })
+      });
   }
 }
