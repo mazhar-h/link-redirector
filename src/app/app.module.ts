@@ -4,9 +4,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { InterfaceComponent } from './interface/interface.component';
-import { RedirectComponent } from './redirect/redirect.component';
-import { NotFoundComponent } from './not-found/not-found.component';
+import { InterfaceComponent } from './components/interface/interface.component';
+import { RedirectComponent } from './components/redirect/redirect.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 import { LinkService } from './services/link.service';
 

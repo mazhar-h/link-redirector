@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { LinkService } from '../services/link.service';
+import { LinkService } from '../../services/link.service';
 
 @Component({
   selector: 'app-redirect',

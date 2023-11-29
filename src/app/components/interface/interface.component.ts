@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { LinkService } from '../services/link.service';
-import { LinkResponse } from '../models/link.model';
+import { LinkService } from '../../services/link.service';
+import { LinkResponse } from '../../models/link.model';
 
 @Component({
   selector: 'app-interface',

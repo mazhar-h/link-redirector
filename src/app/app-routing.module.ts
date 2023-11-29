@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { RedirectComponent } from './redirect/redirect.component';
-import { InterfaceComponent } from './interface/interface.component';
-import { NotFoundComponent } from './not-found/not-found.component';
+import { RedirectComponent } from './components/redirect/redirect.component';
+import { InterfaceComponent } from './components/interface/interface.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const routes: Routes = [
   { path: '', component: InterfaceComponent },
